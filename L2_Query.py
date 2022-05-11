@@ -3,7 +3,6 @@ import numpy as np
 import ast
 
 pd.options.display.max_columns = 100
-df = pd.read_msgpack("../../MP_General/2020 Election/L2.msg").iloc[:, range(0,9)].drop([0,1,2,3,170960,170961])
 
 def L2_Query():
     df = pd.read_msgpack("../../MP_General/2020 Election/L2.msg").iloc[:, range(0,9)].drop([0,1,2,3,170960,170961])
@@ -41,27 +40,3 @@ def L2_Query():
         return L2_Query()
     elif query_split == "n":
         pass
-# L2_Query({"State" : "TX"}, ["Gender"])
-
-
-# def filterTest(filters):
-#     df = pd.read_msgpack("../../MP General/L2.msg").iloc[:, range(0,9)].drop([0,1,2,3,170960,170961])
-#     for key, item in filters.items():
-#         df = df[df[key].isin([item])]
-
-# filterTest({"State" : "TX", "Party Affiliation" : "Democratic"})
-
-# def varTest(variables):
-#     count = 0
-#     nonHispanic = 0
-#     df = pd.read_msgpack("../../MP General/L2.msg").iloc[:, range(0,9)].drop([0,1,2,3,170960,170961])
-#     dfReset = df
-#     for var in variables:
-#         for unique in getattr(df, var).unique():
-#             df = df[df[var].isin([unique])]
-#             print(var + " " + unique + " Total " + str(df["Total Voters"].sum()))
-#             print("Hispanic Voters " + str(df["Hispanic Voters"].sum()))
-#             print("Non-Hispanic Voters " + str(df["Total Voters"].sum() - df["Hispanic Voters"].sum()))
-#             print(" ")
-#             df = dfReset
-# varTest(["Gender", "Age Range"])
